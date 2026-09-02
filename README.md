@@ -9,44 +9,52 @@ Repositório de estudos do módulo de front-end. O objetivo é construir uma bas
 - `main`: anotações e visão geral do módulo;
 - `modulo-01-react`: exercícios, exemplos e projeto guiado em React.
 
-## Aulas
+## Roteiro das 24 videoaulas
 
-### Aula 01 — Introdução ao Front-End Moderno
+> Os nomes exibidos na lateral do AVA são abreviados. A sequência abaixo preserva a organização real do conteúdo, sem marcar novas aulas como concluídas.
+
+| Videoaulas | Tema |
+| --- | --- |
+| 01 | Introdução ao Front-End moderno |
+| 02–05 | Primeiros passos com React |
+| 06–07 | Comunicação com APIs |
+| 08–12 | Autenticação |
+| 13–20 | Projeto guiado: mini app com filmes |
+| 21–24 | Entrevistas técnicas e desafios reais |
+
+Também fazem parte da disciplina um videocast sobre roadmap de estudos e a avaliação.
+
+## Conteúdos-chave
+
+### Introdução ao Front-End e React
 
 - Evolução de HTML, CSS, JavaScript e SPAs;
 - React, Next.js, TypeScript, Node.js e Tailwind CSS;
 - Componentização, acessibilidade, responsividade e performance;
-- Preparação do ambiente com Node.js LTS e VS Code.
+- Estrutura de projeto, JSX, props, estado e composição de componentes.
 
-### Aula 02 — Primeiros Passos com React
-
-- Estrutura de um projeto React;
-- Componentes funcionais, JSX e props;
-- DOM virtual e abordagem declarativa;
-- Composição e reutilização de componentes.
-
-### Aula 03 — Comunicação com APIs
+### Comunicação com APIs
 
 - Requisições HTTP com `fetch` ou Axios;
-- `useState` para dados reativos;
-- `useEffect` para efeitos colaterais e carregamento inicial;
-- Estados de loading, erro e renderização dos dados.
+- `useState` para dados reativos e `useEffect` para efeitos colaterais;
+- Estados de loading, erro e renderização dos dados;
+- Separação entre componentes de interface e serviços de API.
 
-### Aula 04 — Autenticação
+### Autenticação
 
 - Fluxo de login com JWT;
-- Envio do token nas requisições autenticadas;
+- Envio do token em requisições autenticadas;
 - Rotas protegidas com `react-router-dom`;
 - Cuidados com `localStorage`, XSS, HTTPS e expiração de sessão.
 
-### Aulas 05 e 06 — Projeto Guiado: Mini App de Filmes
+### Projeto guiado: mini app de filmes
 
 - Lista de filmes em destaque, busca e detalhes;
 - Componentes reutilizáveis, páginas e serviços de API;
 - Rotas `/`, `/filme/:id` e página 404;
 - `useNavigate`, `useParams`, responsividade e preparação para deploy.
 
-### Aula 07 — Entrevistas Técnicas e Desafios Reais
+### Entrevistas e desafios
 
 - Triagem, entrevista técnica, live coding e desafio assíncrono;
 - Revisão de JavaScript, React, HTML, CSS e APIs;
