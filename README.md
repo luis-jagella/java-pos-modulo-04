@@ -90,6 +90,34 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 
 É esperado conhecimento básico de lógica, Java (ou outra linguagem), aplicações web, comunicação assíncrona e consulta à documentação. O princípio do instrutor é KISS (*Keep It Simple*): manter as soluções tão simples quanto possível.
 
+## Anotações — Aula 02: Configuração do Ambiente e Ferramentas
+
+### Ambiente e criação do projeto
+
+- Node.js 22.16 LTS, gerenciado com NVM para alternar versões;
+- VS Code com terminal integrado;
+- Projeto `fundamentos-frontend-react` criado com Next.js;
+- TypeScript e ESLint habilitados para tipagem, padronização e prevenção de erros;
+- Tailwind CSS configurado via PostCSS;
+- App Router em `src/app/`;
+- Turbopack ativado com `next dev --turbo` para desenvolvimento e hot reload.
+
+### Estrutura essencial
+
+- `package.json`: dependências e scripts (`dev`, `build`, `lint`);
+- `node_modules/`: pacotes instalados, não versionar no Git;
+- `public/`: imagens, ícones e outros arquivos estáticos;
+- `src/app/layout.tsx`: wrapper global, `<html>`, `<body>`, fontes e metadados;
+- `src/app/page.tsx`: página inicial e primeiro ponto de renderização.
+
+### React e JSX/TSX
+
+- JSX permite escrever marcação semelhante a HTML dentro do JavaScript;
+- use `className` em vez de `class` e feche tags sem conteúdo (`<img />`);
+- Fragments (`<>...</>`) agrupam elementos sem criar uma `div` extra;
+- componentes podem ser declarados com `function` ou arrow functions;
+- props são os parâmetros passados do componente pai para o filho, permitindo reutilização e interfaces dinâmicas.
+
 ## Próximos passos
 
 - [ ] Criar o projeto React com Vite e TypeScript;
