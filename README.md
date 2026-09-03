@@ -118,6 +118,34 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 - componentes podem ser declarados com `function` ou arrow functions;
 - props são os parâmetros passados do componente pai para o filho, permitindo reutilização e interfaces dinâmicas.
 
+## Anotações — Aula 03: Listas, Imagens e Rotas no Next.js
+
+### Listas e objetos
+
+- Arrays JavaScript podem ser renderizados com `map`, retornando um elemento JSX para cada item;
+- cada item repetido precisa de uma `key` estável e única para o Virtual DOM;
+- o índice pode compor uma chave (`hobby-${index}`), mas um identificador próprio do dado é preferível;
+- `key` serve ao React e não aparece no HTML final;
+- props são objetos e podem ser lidas de forma concisa com destructuring (`{ name, age }`);
+- arrays e objetos estáticos devem ficar fora do componente para não serem recriados a cada renderização;
+- spread (`...`) permite combinar arrays em uma nova lista.
+
+### Imagens
+
+- Em Next.js, prefira `next/image` ao `<img>` para obter otimização de carregamento;
+- informe sempre `src`, `width`, `height` e `alt`;
+- `alt` é essencial para acessibilidade e leitores de tela;
+- imagens locais podem vir da pasta `public/` usando caminhos como `/next.svg`;
+- `priority` pode antecipar o carregamento de imagens importantes, mas deve ser usado com moderação.
+
+### Rotas dinâmicas
+
+- No App Router, uma pasta com `page.tsx` define uma rota;
+- `src/app/nivel-0/page.tsx` corresponde a `/nivel-0`;
+- pastas entre colchetes criam parâmetros dinâmicos, como `src/app/blog/[name]/page.tsx`;
+- o parâmetro é recebido em `params` e, nas versões atuais do Next.js, pode ser uma `Promise` que deve ser aguardada com `await`;
+- a página precisa ser declarada `async` para usar esse `await` e deve tipar suas props com TypeScript.
+
 ## Próximos passos
 
 - [ ] Criar o projeto React com Vite e TypeScript;
