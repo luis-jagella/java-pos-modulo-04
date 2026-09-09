@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CounterPractice } from "@/components/CounterPractice";
 
 const topics = [
   { slug: "componentes", title: "Componentes e props", description: "Partes reutilizáveis da interface que recebem dados." },
@@ -52,6 +53,8 @@ export default function Home() {
             ))}
           </ul>
         </section>
+
+        <CounterPractice />
       </section>
     </main>
   );
