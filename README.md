@@ -170,6 +170,33 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 - componentes passam pelos ciclos de montagem, atualização e desmontagem;
 - `useEffect` é o hook usado para efeitos relacionados a essas mudanças, como sincronizações, logs ou limpezas ao desmontar.
 
+## Anotações — Aula 05: Context API e Persistência de Sessão
+
+### Context API
+
+- Context API é o mecanismo nativo do React para estado compartilhado entre vários componentes;
+- evita *prop drilling*: passar a mesma prop por muitos níveis da árvore apenas para alcançar um componente distante;
+- Redux foi muito usado para estado global; Context API resolve casos simples e médios sem dependência adicional;
+- crie o contexto com `createContext`, disponibilize valores com um `Provider` e consuma-os com `useContext`;
+- o Provider envolve somente a parte da árvore que precisa acessar aquele estado, frequentemente por meio de um `layout.tsx` interno;
+- o Provider recebe `children`, normalmente tipado como `ReactNode`;
+- o tipo do contexto deve refletir tanto o valor quanto seu atualizador, por exemplo `count: number` e `setCount: Dispatch<SetStateAction<number>>`.
+
+### Estado global na prática
+
+- Componentes descendentes do Provider acessam o mesmo valor sem receber props intermediárias;
+- ao atualizar o contador em um componente, todos os demais consumidores do contexto recebem o novo valor;
+- Context não substitui automaticamente o estado local: use-o quando o dado for realmente compartilhado.
+
+### SessionStorage
+
+- Estado React é reiniciado ao recarregar a página;
+- `sessionStorage` persiste dados por aba do navegador durante a sessão atual;
+- cada aba mantém seu próprio `sessionStorage`, enquanto `localStorage` é compartilhado entre abas da mesma origem;
+- o armazenamento usa pares chave-valor e `getItem` retorna `string` ou `null`;
+- para recuperar números, valide a existência do valor e converta a string antes de atualizar o estado;
+- a leitura no cliente pode ocorrer em `useEffect` com dependências vazias, após a montagem.
+
 ## Próximos passos
 
 - [ ] Criar o projeto React com Vite e TypeScript;
