@@ -146,6 +146,30 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 - o parâmetro é recebido em `params` e, nas versões atuais do Next.js, pode ser uma `Promise` que deve ser aguardada com `await`;
 - a página precisa ser declarada `async` para usar esse `await` e deve tipar suas props com TypeScript.
 
+## Anotações — Aula 04: Eventos, Estado e Componentes Reutilizáveis
+
+### Eventos e Tailwind CSS
+
+- Eventos React representam interações do usuário, como clique e alteração em campos; não são eventos de mensageria;
+- `onClick` recebe uma função executada quando o usuário clica;
+- `onChange` captura alterações em inputs controlados;
+- Tailwind aplica estilo por classes utilitárias, como `border`, `px-4`, `py-1`, `rounded`, `bg-blue-500` e `hover:bg-blue-900`;
+- valores personalizados podem ser usados entre colchetes, como `bg-[#123456]`.
+
+### Estado e formulários
+
+- Para atualizar um contador a partir do estado anterior, prefira o atualizador funcional: `setCount((current) => current + 1)`;
+- essa forma evita leituras desatualizadas quando várias atualizações ocorrem em sequência;
+- inputs controlados recebem `value` do estado e atualizam esse estado em `onChange` com `event.target.value`;
+- um botão de limpar pode restaurar o estado do input para uma string vazia.
+
+### Componentização e ciclo de vida
+
+- Botões repetidos devem virar um componente reutilizável que recebe `onClick` e `children` por props;
+- em TypeScript, `children` pode ser tipado como `ReactNode` e o clique como `MouseEventHandler<HTMLButtonElement>`;
+- componentes passam pelos ciclos de montagem, atualização e desmontagem;
+- `useEffect` é o hook usado para efeitos relacionados a essas mudanças, como sincronizações, logs ou limpezas ao desmontar.
+
 ## Próximos passos
 
 - [ ] Criar o projeto React com Vite e TypeScript;
