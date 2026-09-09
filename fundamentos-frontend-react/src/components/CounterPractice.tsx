@@ -2,9 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { Button } from "./Button";
+import { useGlobalCounter } from "@/context/GlobalCounterContext";
 
 export function CounterPractice() {
-  const [count, setCount] = useState(0);
+  const { count, setCount } = useGlobalCounter();
   const [note, setNote] = useState("");
 
   useEffect(() => {
@@ -15,7 +16,7 @@ export function CounterPractice() {
     <section className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
       <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">Prática da Aula 04</p>
       <h2 className="mt-2 text-2xl font-bold">Eventos e estado</h2>
-      <p className="mt-2 text-slate-600">O contador usa atualizadores funcionais; o campo é um input controlado.</p>
+      <p className="mt-2 text-slate-600">O contador usa Context API, atualizadores funcionais e sessionStorage; o campo é um input controlado.</p>
 
       <p className="mt-6 text-4xl font-bold text-slate-950" aria-live="polite">{count}</p>
       <div className="mt-4 flex flex-wrap gap-3">

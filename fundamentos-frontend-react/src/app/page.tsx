@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { CounterPractice } from "@/components/CounterPractice";
+import { GlobalCounterValue } from "@/components/GlobalCounterValue";
+import { GlobalCounterProvider } from "@/context/GlobalCounterContext";
 
 const topics = [
   { slug: "componentes", title: "Componentes e props", description: "Partes reutilizáveis da interface que recebem dados." },
@@ -29,8 +31,9 @@ function Highlight({ title, description, href }: HighlightProps) {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-50 px-6 py-12 text-slate-900">
-      <section className="mx-auto max-w-4xl">
+    <GlobalCounterProvider>
+      <main className="min-h-screen bg-slate-50 px-6 py-12 text-slate-900">
+        <section className="mx-auto max-w-4xl">
         <div className="rounded-2xl bg-slate-950 p-8 text-white shadow-lg sm:p-12">
           <div className="flex flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
             <div>
@@ -54,8 +57,10 @@ export default function Home() {
           </ul>
         </section>
 
-        <CounterPractice />
-      </section>
-    </main>
+          <CounterPractice />
+          <GlobalCounterValue />
+        </section>
+      </main>
+    </GlobalCounterProvider>
   );
 }
