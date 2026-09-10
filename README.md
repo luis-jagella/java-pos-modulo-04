@@ -197,6 +197,32 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 - para recuperar números, valide a existência do valor e converta a string antes de atualizar o estado;
 - a leitura no cliente pode ocorrer em `useEffect` com dependências vazias, após a montagem.
 
+## Anotações — Aula 06: Comunicação com APIs (Parte 1)
+
+### Revisão de estado e TypeScript
+
+- Em JavaScript, `0`, `""`, `false`, `null`, `undefined` e `NaN` são valores *falsy*; portanto, `if (count)` não serve para verificar se um contador existe;
+- para preservar o valor `0` no armazenamento, teste explicitamente contra `null` ou `undefined`;
+- se um valor do Context pode ser `null`, trate esse caso antes de realizar operações matemáticas, por exemplo com `value ?? 0`;
+- prefira validação e valores padrão a um *type cast* forçado quando não houver garantia real de que o dado existe;
+- organize imports do mais global para o mais local: bibliotecas, módulos internos e componentes irmãos.
+
+### Fetch API
+
+- `fetch` é a API nativa do JavaScript para comunicação HTTP e retorna uma `Promise`;
+- Axios é uma alternativa que adiciona uma camada de conveniência, mas também uma dependência a manter;
+- valide `response.ok`: respostas HTTP como 404 ou 500 não tornam automaticamente a Promise rejeitada;
+- use `response.json()` para JSON e `response.text()` quando a resposta for texto;
+- `try...catch` trata falhas de rede e erros lançados manualmente;
+- opções de requisição incluem `method`, `body` e `headers`; tokens de autenticação costumam ser enviados em headers.
+
+### CORS e comunicação server-side
+
+- CORS (*Cross-Origin Resource Sharing*) é uma proteção aplicada pelo navegador para controlar quais origens podem acessar uma API;
+- a permissão é definida no servidor por headers HTTP; não é um problema que se resolve apenas no front-end;
+- ele evita que sites de outra origem consumam recursos sem autorização;
+- no Next.js, uma opção é buscar dados no servidor, deixando o servidor Next comunicar-se com a API antes de entregar a página.
+
 ## Próximos passos
 
 - [ ] Criar o projeto React com Vite e TypeScript;
