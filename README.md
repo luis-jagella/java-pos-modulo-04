@@ -223,6 +223,30 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 - ele evita que sites de outra origem consumam recursos sem autorização;
 - no Next.js, uma opção é buscar dados no servidor, deixando o servidor Next comunicar-se com a API antes de entregar a página.
 
+## Anotações — Aula 07: Comunicação com APIs (Parte 2)
+
+### Server Components e Client Components
+
+- No App Router, componentes são Server Components por padrão; use `"use client"` apenas quando precisar de interatividade ou APIs do navegador;
+- buscar dados no servidor normalmente evita CORS no navegador e entrega a página com os dados já preparados;
+- buscar diretamente no cliente expõe a requisição no painel Network e pode sofrer restrições de CORS;
+- para dados que precisam chegar rapidamente na primeira renderização, server-side tende a proporcionar uma experiência mais fluida.
+
+### Suspense e a API `use`
+
+- `Suspense` exibe um `fallback` enquanto seus componentes filhos aguardam recursos assíncronos;
+- o fallback pode ser um texto de carregamento ou um *skeleton*;
+- não aguarde a Promise na página quando ela deve ser resolvida dentro de `Suspense`: passe a Promise adiante;
+- em um Client Component, a API `use` do React pode ler uma `Promise` recebida por props;
+- tipar a prop como `Promise<PostType[]>` garante que o componente saiba qual dado será resolvido.
+
+### Organização e ferramentas
+
+- Centralize tipos compartilhados, como `PostType`, para evitar cópias e inconsistências;
+- o alias `@/` aponta para `src/`, simplificando imports internos;
+- npm, Yarn e pnpm são gerenciadores de pacotes; use apenas um lockfile por projeto para manter instalações reprodutíveis;
+- não execute comandos de inicialização de outro gerenciador sem avaliar o impacto sobre `package.json` e arquivos de lock.
+
 ## Próximos passos
 
 - [ ] Criar o projeto React com Vite e TypeScript;
