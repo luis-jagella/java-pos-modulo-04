@@ -57,9 +57,19 @@ export default function Home() {
           </ul>
         </section>
 
-          <CounterPractice />
-          <GlobalCounterValue />
+        <CounterPractice />
+        <GlobalCounterValue />
+
+        <section className="mt-10 rounded-2xl bg-slate-950 p-6 text-white">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-300">Prática da Aula 07</p>
+          <h2 className="mt-2 text-2xl font-bold">Comunicação com APIs</h2>
+          <p className="mt-2 text-slate-300">Compare dados carregados no servidor e uma lista renderizada com Suspense.</p>
+          <div className="mt-5 flex flex-wrap gap-3">
+            <Link href="/api-examples/server-side" className="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-slate-200">Ver server-side</Link>
+            <Link href="/api-examples/client-side" className="rounded-lg border border-slate-500 px-4 py-2 text-sm font-semibold hover:bg-slate-800">Ver Suspense</Link>
+          </div>
         </section>
+      </section>
       </main>
     </GlobalCounterProvider>
   );
