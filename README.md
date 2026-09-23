@@ -247,6 +247,30 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 - npm, Yarn e pnpm são gerenciadores de pacotes; use apenas um lockfile por projeto para manter instalações reprodutíveis;
 - não execute comandos de inicialização de outro gerenciador sem avaliar o impacto sobre `package.json` e arquivos de lock.
 
+## Anotações — Aula 08: Autenticação (Parte 1)
+
+### Autenticação e autorização
+
+- Autenticação responde **quem é o usuário**: confirma sua identidade, normalmente com credenciais como e-mail e senha;
+- autorização responde **o que o usuário pode fazer ou acessar** depois de autenticado;
+- roles, como `user` e `admin`, agrupam permissões e são usadas nas decisões de autorização;
+- autenticação vem antes de autorização: não há como decidir permissões de uma identidade ainda não confirmada.
+
+### Preparação do projeto
+
+- Mantenha versões de tipos alinhadas, quando possível, à versão do Node usada no projeto;
+- `@types/node` é uma dependência de desenvolvimento e deve ficar em `devDependencies`;
+- o compilador TypeScript pode ser validado pelo terminal com `tsc`; ausência de saída normalmente indica sucesso;
+- Yarn, npm e pnpm têm comandos e lockfiles diferentes; escolha um gerenciador por projeto e evite alterações acidentais entre eles.
+
+### AuthContext e uso de IA
+
+- Um `AuthContext` client-side pode centralizar `user`, `token`, `login` e `logout` para os componentes que precisam do estado de sessão;
+- a tipagem inicial deve representar claramente usuário, token opcional e contratos das funções de autenticação;
+- o token JWT será usado nas chamadas a APIs protegidas, normalmente em um header HTTP;
+- ao pedir ajuda a uma IA, dê contexto mínimo e específico: framework, versão, App Router, estratégia de requisição e objetivo;
+- revise toda sugestão gerada por IA e compare-a com a documentação da versão usada pelo projeto.
+
 ## Próximos passos
 
 - [ ] Criar o projeto React com Vite e TypeScript;
