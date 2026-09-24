@@ -271,6 +271,27 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 - ao pedir ajuda a uma IA, dê contexto mínimo e específico: framework, versão, App Router, estratégia de requisição e objetivo;
 - revise toda sugestão gerada por IA e compare-a com a documentação da versão usada pelo projeto.
 
+## Anotações — Aula 09: Autenticação (Parte 2 — Formulário de Login)
+
+### Submissão de formulários
+
+- Formulários usam `onSubmit` para concentrar a ação de envio; o botão dispara essa ação com `type="submit"`;
+- `onClick` no botão também pode ser válido, especialmente quando a ação pertence ao próprio componente de botão;
+- a escolha depende da organização dos componentes, mas `onSubmit` preserva a semântica e o comportamento esperado de formulários.
+
+### Componentes reutilizáveis e props
+
+- Um componente de botão deve aceitar suas props específicas e também as props nativas de `button`;
+- o spread operator (`...props`) repassa atributos como `type`, `disabled`, `aria-*` e outros ao elemento HTML;
+- após ampliar a tipagem do componente, valide com `tsc` para garantir que os usos existentes continuam corretos.
+
+### Layout com Tailwind
+
+- `grid` e `gap` organizam campos e espaçamentos do formulário;
+- inputs podem usar classes como `border`, `border-gray-900`, `rounded`, `p-2` e `w-96`;
+- `flex`, `items-center`, `justify-center` e `min-h-screen` centralizam o formulário na tela sem alterar o layout global;
+- um título claro e tipografia (`text-5xl`, `font-bold`) completam a hierarquia visual da página.
+
 ## Próximos passos
 
 - [ ] Criar o projeto React com Vite e TypeScript;
