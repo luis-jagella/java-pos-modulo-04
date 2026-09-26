@@ -1,39 +1,13 @@
 "use client";
 
-import { type FormEvent, useState } from "react";
+import { useActionState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
+import { initialRegisterState, registerAction } from "./actions";
 
 export default function RegisterPage() {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [message, setMessage] = useState("");
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setError("");
-    setMessage("");
-
-    if (!username || !email || !password) {
-      setError("Preencha todos os campos para continuar.");
-      return;
-    }
-
-    if (!/^\S+@\S+\.\S+$/.test(email)) {
-      setError("Informe um e-mail válido.");
-      return;
-    }
-
-    if (password.length < 6) {
-      setError("A senha deve ter pelo menos 6 caracteres.");
-      return;
-    }
-
-    setMessage(`Cadastro validado para ${username}. A integração com a API será adicionada nas próximas aulas.`);
-  }
+  const [state, formAction, isPending] = useActionState(registerAction, initialRegisterState);
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-slate-50 px-6 py-12">
@@ -45,15 +19,15 @@ export default function RegisterPage() {
             <h1 className="mt-2 text-4xl font-bold tracking-tight text-slate-950">Cadastro</h1>
           </div>
 
-          <form className="grid gap-4" noValidate onSubmit={handleSubmit}>
-            <Input id="username" label="Usuário" value={username} onChange={(event) => setUsername(event.target.value)} autoComplete="username" />
-            <Input id="email" label="E-mail" type="email" value={email} onChange={(event) => setEmail(event.target.value)} autoComplete="email" />
-            <Input id="password" label="Senha" type="password" value={password} onChange={(event) => setPassword(event.target.value)} autoComplete="new-password" />
-            <Button type="submit">Cadastrar</Button>
+          <form className="grid gap-4" noValidate action={formAction}>
+            <Input id="username" name="username" label="Usuário" autoComplete="username" />
+            <Input id="email" name="email" label="E-mail" type="email" autoComplete="email" />
+            <Input id="password" name="password" label="Senha" type="password" autoComplete="new-password" />
+            <Button type="submit" disabled={isPending}>{isPending ? "Validando..." : "Cadastrar"}</Button>
           </form>
 
-          {error && <p className="rounded-lg border border-red-800 bg-red-700 p-3 text-sm font-bold text-white" role="alert">{error}</p>}
-          {message && <p className="rounded-lg bg-blue-50 p-3 text-sm text-blue-950" role="status">{message}</p>}
+          {state.status === "error" && <p className="rounded-lg border border-red-800 bg-red-700 p-3 text-sm font-bold text-white" role="alert">{state.message}</p>}
+          {state.status === "success" && <p className="rounded-lg bg-blue-50 p-3 text-sm text-blue-950" role="status">{state.message}</p>}
 
           <p className="text-center text-sm text-slate-600">Já tem cadastro? <Link href="/login" className="font-semibold text-blue-700 underline">Entrar</Link></p>
         </section>
