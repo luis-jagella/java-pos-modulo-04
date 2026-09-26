@@ -316,6 +316,30 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 - a abordagem mais segura é manter o cookie `HttpOnly` e deixar o servidor/BFF do Next encaminhar a autenticação à API;
 - para cookies de sessão reais, avalie também `Secure`, `SameSite`, expiração, HTTPS e proteção CSRF.
 
+## Anotações — Aula 11: Autenticação (Parte 4 — JWT com `jose`)
+
+### Biblioteca e verificação
+
+- `jose` é uma biblioteca moderna para assinar, verificar e decodificar JWTs em ambientes JavaScript/TypeScript compatíveis com Web Crypto;
+- escolha bibliotecas com documentação atual e compatibilidade com o ambiente onde o código vai executar;
+- `jwtVerify(token, secret)` verifica assinatura e expiração de forma assíncrona e retorna payload e header protegido;
+- segredos para HMAC podem ser convertidos para bytes com `new TextEncoder().encode(secret)`;
+- após verificar o token, leia claims do `payload`, como a role, e nunca confie em valores recebidos sem verificação.
+
+### Assinatura e autorização
+
+- `SignJWT(payload)` cria o token; configure header protegido, algoritmo, tempo de expiração e assine com a chave secreta;
+- o algoritmo de assinatura deve ser configurado uma única vez e usado de forma consistente na assinatura e na verificação;
+- endpoints e middleware devem retornar `401` para token ausente ou inválido e aplicar regras de autorização após validar o JWT;
+- roles no token ajudam decisões de acesso, mas a API continua responsável por validar permissões sensíveis.
+
+### Cuidados
+
+- chave e algoritmo devem vir de variáveis de ambiente, nunca do código versionado;
+- troque tokens/segredos de teste antes de qualquer deploy;
+- não use apenas decode para proteger rotas: decodificar lê o conteúdo, verificar valida assinatura e claims;
+- valide algoritmo, expiração e formato do token; não aceite um header `Authorization` arbitrário sem checagem.
+
 ## Próximos passos
 
 - [ ] Criar o projeto React com Vite e TypeScript;
