@@ -68,6 +68,7 @@ export default function Home() {
             <Link href="/api-examples/server-side" className="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-slate-950 hover:bg-slate-200">Ver server-side</Link>
             <Link href="/api-examples/client-side" className="rounded-lg border border-slate-500 px-4 py-2 text-sm font-semibold hover:bg-slate-800">Ver Suspense</Link>
             <Link href="/login" className="rounded-lg border border-slate-500 px-4 py-2 text-sm font-semibold hover:bg-slate-800">Ver login</Link>
+            <Link href="/register" className="rounded-lg border border-slate-500 px-4 py-2 text-sm font-semibold hover:bg-slate-800">Ver cadastro</Link>
           </div>
         </section>
       </section>
