@@ -363,6 +363,33 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 - diferencie mensagens de "autenticação não ok" (sem usuário/token válido) de "autorização não ok" (usuário válido sem permissão);
 - testes server-side usam cookies do servidor; testes client-side usam efeitos e mostram estados transitórios de carregamento.
 
+## Anotações — Aula 13: Projeto Guiado — CRUD de Tasks (Parte 1)
+
+### Objetivo do projeto
+
+- Construir uma aplicação ponta a ponta de tarefas para reunir React, Next.js, TypeScript, Tailwind, APIs e autenticação JWT;
+- telas previstas: Home, cadastro, login e listagem/gestão de tasks;
+- reutilizar header e footer entre páginas e criar componentes de interface reaproveitáveis;
+- o foco é uma abordagem atual e prática, não uma única "fonte da verdade" para todo projeto.
+
+### Contrato da API demonstrada
+
+- `POST /auth/register`: recebe `username`, `email` e `password`; devolve dados do usuário e token;
+- `POST /auth/login`: recebe e-mail e senha; devolve usuário e token;
+- `GET /tasks`: lista as tasks do usuário autenticado;
+- `POST /tasks`: cria uma task pelo título;
+- `PUT /tasks/:id`: atualiza o status `completed`;
+- `DELETE /tasks/:id`: exclusão lógica, removendo a task da listagem;
+- requisições de tasks usam `Authorization: Bearer <token>` e as respostas devolvem a lista atualizada.
+
+### Modelo e decisões
+
+- Uma task contém `id`, `userId`, `title`, `completed` e `deleted`;
+- `deleted` representa exclusão lógica: o dado é marcado no backend, mas não volta no `GET`;
+- o projeto usa Next.js com TypeScript, ESLint, Tailwind, `src/`, App Router e Turbopack;
+- chamadas server-side evitam expor a comunicação direta com o backend e reduzem problemas de CORS;
+- o backend de demonstração roda localmente em `localhost:4000`; para reproduzir a integração, é necessário ter uma API compatível em execução.
+
 ## Próximos passos
 
 - [ ] Criar o projeto React com Vite e TypeScript;
