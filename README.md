@@ -390,6 +390,31 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 - chamadas server-side evitam expor a comunicação direta com o backend e reduzem problemas de CORS;
 - o backend de demonstração roda localmente em `localhost:4000`; para reproduzir a integração, é necessário ter uma API compatível em execução.
 
+## Anotações — Aula 14: Projeto Guiado — Home e Cadastro (Parte 2)
+
+### Home e rotas
+
+- A Home apresenta links para `/register`, `/login` e `/tasks`;
+- `Link` do Next.js faz a navegação entre rotas da aplicação;
+- uma rota inexistente exibe o 404 padrão; uma página `not-found` personalizada pode ser criada depois;
+- estilos de listas e links podem ser aplicados no elemento pai, como `list-disc`, margem e `underline`;
+- o layout compartilhado é o lugar adequado para itens comuns, como título, header, footer e link de retorno à Home.
+
+### Formulário de cadastro
+
+- A rota `/register` terá campos de `username`, `email` e `password`, mantendo os mesmos nomes esperados pela API;
+- valide campos obrigatórios, formato de e-mail e senha de ao menos seis caracteres antes de enviar a requisição;
+- use `form`, `label`, `fieldset` e `input` para manter a semântica e acessibilidade;
+- associe `label` e `input` com `htmlFor` e `id` iguais;
+- agrupe cada label e input em um `fieldset` para evitar que o layout do formulário separe visualmente os dois elementos.
+
+### Reutilização e estilo
+
+- Inputs repetidos devem virar um componente reutilizável para centralizar aparência e comportamento;
+- Tailwind pode combinar `border`, `shadow`, `focus:`, `hover:`, padding e `rounded-lg` para criar campos consistentes;
+- `grid` e `gap` organizam os campos em coluna, com espaçamento controlado;
+- `placeholder` pode complementar o campo, mas o `label` explícito é mais claro e acessível.
+
 ## Próximos passos
 
 - [ ] Criar o projeto React com Vite e TypeScript;
