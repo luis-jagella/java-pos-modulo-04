@@ -292,6 +292,30 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 - `flex`, `items-center`, `justify-center` e `min-h-screen` centralizam o formulário na tela sem alterar o layout global;
 - um título claro e tipografia (`text-5xl`, `font-bold`) completam a hierarquia visual da página.
 
+## Anotações — Aula 10: Autenticação (Parte 3 — Cookies e Rotas Protegidas)
+
+### Cookies e requisições autenticadas
+
+- Tokens podem ser definidos pelo servidor em um cookie na resposta de login;
+- em `fetch`, `credentials: "include"` envia cookies também em requisições entre origens, desde que o servidor e o CORS permitam;
+- `credentials: "same-origin"` é o padrão e envia cookies somente para a mesma origem; `omit` nunca os envia;
+- endpoints protegidos devem responder `401 Unauthorized` quando o token estiver ausente e rejeitar tokens inválidos.
+
+### Server-side no Next.js
+
+- No servidor, `cookies()` de `next/headers` permite ler cookies da requisição; nas versões atuais do Next, essa chamada é assíncrona;
+- o token pode ser encaminhado a uma API protegida no header `Authorization: Bearer <token>`;
+- funções utilitárias centralizam a construção de requisições autenticadas;
+- `split` e `replace` podem remover o prefixo `Bearer`, mas o ideal é validar o formato do header antes de usar o token;
+- logs feitos em Server Components aparecem no terminal do Next, não no console do navegador.
+
+### Segurança essencial
+
+- Cookies `HttpOnly` não podem ser lidos por `document.cookie`, e isso é uma proteção contra roubo de token por XSS;
+- **não remova `HttpOnly` apenas para tornar o JWT acessível ao JavaScript do cliente**;
+- a abordagem mais segura é manter o cookie `HttpOnly` e deixar o servidor/BFF do Next encaminhar a autenticação à API;
+- para cookies de sessão reais, avalie também `Secure`, `SameSite`, expiração, HTTPS e proteção CSRF.
+
 ## Próximos passos
 
 - [ ] Criar o projeto React com Vite e TypeScript;
