@@ -415,6 +415,28 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 - `grid` e `gap` organizam os campos em coluna, com espaçamento controlado;
 - `placeholder` pode complementar o campo, mas o `label` explícito é mais claro e acessível.
 
+## Anotações — Aula 15: Projeto Guiado — Server Actions e Cadastro (Parte 3)
+
+### Server Actions e FormData
+
+- Uma Server Action é uma função executada no servidor a partir de um formulário; declare `"use server"` na função ou no módulo;
+- passe a função ao atributo `action` do `form`, em vez de depender apenas de `onSubmit` no cliente;
+- a action recebe `FormData`, que permite ler campos pelos atributos `name`, como `formData.get("username")`;
+- converta e valide os valores recebidos antes de chamar qualquer API externa.
+
+### Envio ao backend
+
+- O cadastro usa `fetch` com `POST`, `Content-Type: application/json` e `JSON.stringify({ username, email, password })`;
+- aguarde tanto a requisição quanto a conversão de resposta com `await`;
+- trate falhas de rede e erros inesperados com `try...catch`, usando logs com contexto para facilitar diagnóstico;
+- a URL do backend local deve ser configurável por variável de ambiente, não ficar fixa no código de produção.
+
+### Estado de ação
+
+- `useActionState` conecta a Server Action ao Client Component e expõe o estado retornado pela ação;
+- use esse estado para mostrar mensagens de validação ou de falha ao usuário;
+- callbacks/estados de ação evitam depender apenas do console e mantêm o feedback do formulário próximo da operação que o gerou.
+
 ## Próximos passos
 
 - [ ] Criar o projeto React com Vite e TypeScript;
