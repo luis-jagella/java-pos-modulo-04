@@ -340,6 +340,29 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 - não use apenas decode para proteger rotas: decodificar lê o conteúdo, verificar valida assinatura e claims;
 - valide algoritmo, expiração e formato do token; não aceite um header `Authorization` arbitrário sem checagem.
 
+## Anotações — Aula 12: Autenticação (Parte 5 — Validação e Testes)
+
+### Experiência de login
+
+- Valide e-mail e senha antes de chamar a API; interrompa o fluxo com `return` quando os dados estiverem ausentes;
+- mantenha um estado de erro para apresentar mensagens úteis sem depender apenas do console;
+- limpe mensagens anteriores antes de uma nova tentativa de login e exiba erros retornados pela API de forma controlada;
+- em TypeScript, erros de `catch` são `unknown`; faça validação de tipo antes de acessar `message`, em vez de assumir que todo erro é `Error`.
+
+### Requisições no client
+
+- Client Components não devem ser `async`; busque dados em funções chamadas por `useEffect`;
+- não torne o callback de `useEffect` diretamente assíncrono; declare uma função `async` interna e a invoque, ou use uma IIFE com cuidado;
+- guarde o resultado em estado (`useState`) para renderizar a resposta e evitar um loop de requisições a cada renderização;
+- inclua o token e demais valores usados no array de dependências e só faça a requisição quando eles existirem.
+
+### Autenticação, autorização e expiração
+
+- Um endpoint protegido confirma a autenticidade do token; o middleware ou a regra de negócio decide se a role está autorizada;
+- um token expirado deve ser rejeitado pela verificação, removendo acesso autenticado e, por consequência, qualquer autorização;
+- diferencie mensagens de "autenticação não ok" (sem usuário/token válido) de "autorização não ok" (usuário válido sem permissão);
+- testes server-side usam cookies do servidor; testes client-side usam efeitos e mostram estados transitórios de carregamento.
+
 ## Próximos passos
 
 - [ ] Criar o projeto React com Vite e TypeScript;
