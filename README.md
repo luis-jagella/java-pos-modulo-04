@@ -437,6 +437,24 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 - use esse estado para mostrar mensagens de validação ou de falha ao usuário;
 - callbacks/estados de ação evitam depender apenas do console e mantêm o feedback do formulário próximo da operação que o gerou.
 
+## Anotações — Aulas 15 e 16: Metadados, Route Groups e Login
+
+### Metadados e organização de rotas
+
+- `metadata.title.template` no `layout.tsx` raiz permite títulos consistentes, como `%s | Tasks App`;
+- uma constante compartilhada de título reduz repetição e erros de digitação nas páginas;
+- Route Groups usam pastas entre parênteses, como `(routes)`, apenas para organizar o código: não alteram a URL pública;
+- um `layout.tsx` dentro do grupo encapsula as páginas com estrutura e estilos em comum, eliminando wrappers repetidos;
+- páginas internas retornam somente seu conteúdo específico e herdam o layout do grupo.
+
+### Login e modularização
+
+- A tela de login reutiliza a estrutura de cadastro, removendo apenas o campo de username;
+- a ação de login é uma Server Action própria, apontada para o endpoint de autenticação;
+- URLs de backend devem ser obtidas de variáveis de ambiente com `process.env`, permitindo trocar ambiente sem alterar código;
+- regras de e-mail e senha pertencem a um módulo de validação compartilhado, não ao componente visual;
+- centralizar validações evita divergência de regras entre cadastro e login.
+
 ## Próximos passos
 
 - [ ] Criar o projeto React com Vite e TypeScript;
