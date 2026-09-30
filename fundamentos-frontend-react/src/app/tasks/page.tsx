@@ -2,11 +2,13 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import classNames from "classnames";
 import { FormTasks } from "@/components/forms/FormTasks";
 
 type TaskPreview = {
   id: number;
   title: string;
+  completed: boolean;
 };
 
 export default function TasksPage() {
@@ -15,8 +17,20 @@ export default function TasksPage() {
   function createTask(title: string) {
     setTasks((currentTasks) => [
       ...currentTasks,
-      { id: Date.now(), title },
+      { id: Date.now(), title, completed: false },
     ]);
+  }
+
+  function completeTask(id: number) {
+    setTasks((currentTasks) =>
+      currentTasks.map((task) =>
+        task.id === id ? { ...task, completed: true } : task,
+      ),
+    );
+  }
+
+  function deleteTask(id: number) {
+    setTasks((currentTasks) => currentTasks.filter((task) => task.id !== id));
   }
 
   return (
@@ -27,7 +41,7 @@ export default function TasksPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">Projeto guiado · Aulas 18 e 19</p>
           <h1 className="mt-2 text-4xl font-bold tracking-tight">Tasks</h1>
           <p className="mt-3 text-sm leading-6 text-slate-600">
-            Primeira versão visual do formulário. As tasks abaixo são uma prévia local; a próxima integração trocará esse estado pelas chamadas autenticadas à API.
+            Prévia local da lista. A próxima integração trocará esse estado pelas chamadas autenticadas à API.
           </p>
 
           <div className="mt-6">
@@ -41,7 +55,47 @@ export default function TasksPage() {
             ) : (
               <ul className="mt-3 grid gap-2">
                 {tasks.map((task) => (
-                  <li key={task.id} className="rounded-lg border border-slate-200 px-4 py-3 text-sm">{task.title}</li>
+                  <li
+                    key={task.id}
+                    className={classNames(
+                      "grid grid-cols-[auto_1fr_auto] items-center gap-2 rounded-lg border border-slate-200 px-4 py-3 text-sm transition",
+                      {
+                        "opacity-50": task.completed,
+                        "hover:border-blue-300": !task.completed,
+                      },
+                    )}
+                  >
+                    <input
+                      id={`task-${task.id}`}
+                      name="completed"
+                      type="checkbox"
+                      checked={task.completed}
+                      disabled={task.completed}
+                      onChange={() => completeTask(task.id)}
+                      aria-label={`Concluir task: ${task.title}`}
+                      className="size-4 accent-blue-600 disabled:cursor-default"
+                    />
+                    <label
+                      htmlFor={`task-${task.id}`}
+                      className={classNames("cursor-default", {
+                        "line-through": task.completed,
+                      })}
+                    >
+                      {task.title}
+                    </label>
+                    {!task.completed && (
+                      <button
+                        type="button"
+                        onClick={() => deleteTask(task.id)}
+                        aria-label={`Excluir task: ${task.title}`}
+                        className="group cursor-pointer rounded p-1 focus:outline-none focus:ring-2 focus:ring-red-300"
+                      >
+                        <svg aria-hidden="true" viewBox="0 0 24 24" className="size-5" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path className="stroke-red-700 transition group-hover:stroke-red-500" d="M6 6l12 12M18 6 6 18" />
+                        </svg>
+                      </button>
+                    )}
+                  </li>
                 ))}
               </ul>
             )}
