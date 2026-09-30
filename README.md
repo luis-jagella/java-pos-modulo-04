@@ -524,6 +524,32 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 - construa uma narrativa positiva para transições de carreira, valorizando o que a experiência anterior acrescenta ao seu trabalho atual;
 - use números verdadeiros sempre que possível; se não tiver a métrica exata, prefira descrever o impacto com precisão a inventar valores.
 
+## Anotações — Aula 22: Entrevistas Q&A e Fundamentos de React
+
+### Estratégia para entrevistas
+
+- aproxime sua preparação da *job description*: revise tecnologias pedidas e estude os pontos que não usa há algum tempo;
+- pouco antes da entrevista, ler a descrição em voz alta ajuda a ativar vocabulário e segurança, especialmente em conversas em inglês;
+- faça perguntas em todas as etapas — RH, técnica e gestão — para demonstrar curiosidade e entender o problema real;
+- em *live coding*, a avaliação não é apenas acertar o algoritmo: comunique o raciocínio, divida o problema e mostre colaboração;
+- entrevistas acumulam repertório. Após cada processo, avalie comunicação, decisões e lacunas técnicas para evoluir no próximo.
+
+### Entrevistas de perguntas e respostas
+
+- responda no contexto da tecnologia e da necessidade da empresa; não force sua preferência pessoal quando a vaga pede uma solução diferente;
+- não minta sobre experiência: conecte conhecimentos semelhantes, explique como estudaria a lacuna e dê exemplos concretos de transferência de conhecimento;
+- para uma conversa com gestor, conecte tecnologia à entrega: SSR, performance, CMS, experiência do usuário e prazo são exemplos de preocupações de negócio;
+- use a *job description* para antecipar perguntas, mas não decore respostas vazias: prepare histórias reais de problema, ação e resultado.
+
+### Respostas técnicas essenciais
+
+- **React** é uma biblioteca para construir interfaces reativas por meio de componentes; JavaScript puro poderia produzir o mesmo resultado, mas com mais trabalho manual;
+- **Next.js** é um framework/metaframework sobre React que oferece convenções e recursos de aplicação completa, como rotas por arquivos, renderização no servidor e integração backend;
+- a diferença prática é que React permite mais escolhas de estrutura, enquanto Next.js define caminhos e convenções, por exemplo `app/<rota>/page.tsx`;
+- **props** são dados recebidos pelo componente pai e devem ser tratados como somente leitura; elas descem na árvore de componentes;
+- **state** é o estado interno mutável do componente, atualizado por sua função *setter* (por exemplo, `setCount`), o que dispara nova renderização;
+- um state pode ser passado como prop a um componente filho, mas a prop recebida continua imutável naquele filho.
+
 ## Próximos passos
 
 - [ ] Criar o projeto React com Vite e TypeScript;
