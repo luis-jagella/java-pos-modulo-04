@@ -437,7 +437,7 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 - use esse estado para mostrar mensagens de validação ou de falha ao usuário;
 - callbacks/estados de ação evitam depender apenas do console e mantêm o feedback do formulário próximo da operação que o gerou.
 
-## Anotações — Aulas 15 e 16: Metadados, Route Groups e Login
+## Anotações — Aulas 16 e 17: Metadados, Route Groups e Login
 
 ### Metadados e organização de rotas
 
