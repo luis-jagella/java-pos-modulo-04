@@ -574,10 +574,39 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 - se o contrato da API não atende a interface, crie uma camada de adaptação no front-end em vez de acoplar a tela a um formato inadequado;
 - depois de descobrir o contrato, documente-o e compartilhe com o time — por exemplo, em uma base como Confluence — para reduzir retrabalho.
 
+## Anotações — Aula 24: Comunicação, Negociação e Evolução Profissional
+
+### Comunicação para contexto zero
+
+- ao explicar uma decisão técnica a alguém não técnico, parta do princípio de que a pessoa não conhece o contexto: descreva o problema, impacto, alternativa e recomendação em linguagem simples;
+- evite jargão desnecessário, use exemplos e confirme com frequência se a explicação fez sentido;
+- comunicar bem não reduz profundidade técnica: torna decisões, riscos e prazos negociáveis para todo o time.
+
+### Resultado, pragmatismo e time
+
+- entenda o que está sendo pedido e qual resultado de negócio a tarefa busca gerar; isso orienta prioridades e torna seu trabalho mais visível;
+- uma solução provisória pode ser correta quando o prazo é crítico, desde que o efeito colateral seja conhecido, comunicado e acompanhado por uma correção definitiva;
+- não trate limitações, legado ou pressão como algo pessoal: aceite o contexto, entregue a melhor melhoria possível e evolua o sistema gradualmente;
+- comunicação e empatia fortalecem a colaboração porque pessoas diferentes ainda compartilham o objetivo de entregar o trabalho com qualidade possível.
+
+### Saber pedir ajuda
+
+- antes de pedir ajuda, investigue o problema, tente alternativas e consiga explicar claramente o que tentou, qual foi o resultado e por que ele não atende ao objetivo;
+- peça colaboração para melhorar uma solução existente, não apenas para transferir o problema a outra pessoa;
+- uma solução simples que funciona pode desbloquear o time enquanto a solução ideal é desenvolvida e validada;
+- ninguém sabe tudo: crescimento profissional consistente depende de curiosidade, prática, aprendizado com erros e tempo.
+
+### Continuidade técnica
+
+- testes não foram aprofundados no curso, mas são um próximo exercício valioso: crie testes unitários para os componentes, validações e fluxos da aplicação de tasks;
+- use ferramentas de IA como apoio, mas valide o resultado com documentação, testes e entendimento do comportamento implementado.
+
 ## Próximos passos
 
-- [ ] Criar o projeto React com Vite e TypeScript;
-- [ ] Construir o mini app de filmes;
-- [ ] Integrar uma API pública de filmes;
-- [ ] Adicionar busca, rotas, loading e tratamento de erros;
-- [ ] Documentar decisões e preparar o projeto para deploy.
+- [x] Criar o projeto com Next.js, TypeScript, Tailwind CSS e App Router;
+- [x] Praticar componentes, props, state, Context, rotas, imagens, APIs e autenticação;
+- [x] Construir a base visual do mini app de tasks, incluindo cadastro local, conclusão e exclusão;
+- [x] Registrar as aulas e decisões de implementação deste módulo;
+- [ ] Conectar o app a uma API local compatível, usando token JWT e `POST`/`GET`/`DELETE /tasks`;
+- [ ] Criar testes unitários para validações, componentes e fluxos de tasks;
+- [ ] Preparar uma versão de demonstração e deploy quando houver backend disponível.
