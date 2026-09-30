@@ -1,8 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { CounterPractice } from "@/components/CounterPractice";
 import { GlobalCounterValue } from "@/components/GlobalCounterValue";
 import { GlobalCounterProvider } from "@/context/GlobalCounterContext";
+
+export const metadata: Metadata = { title: "Início" };
 
 const topics = [
   { slug: "componentes", title: "Componentes e props", description: "Partes reutilizáveis da interface que recebem dados." },

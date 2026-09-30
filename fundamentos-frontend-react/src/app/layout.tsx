@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { pageTitle } from "@/lib/metadata";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,7 +14,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Fundamentos de Front-End com React",
+  title: {
+    default: pageTitle,
+    template: `%s | ${pageTitle}`,
+  },
   description: "Exercícios práticos do módulo de React com Next.js.",
 };
 
