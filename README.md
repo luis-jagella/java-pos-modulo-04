@@ -501,6 +501,29 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 - o botão de exclusão pode ser ocultado para tasks concluídas, deixando apenas tasks pendentes elegíveis à remoção;
 - ícones SVG diretos funcionam para ações locais, desde que o botão tenha rótulo acessível e feedback de hover/foco.
 
+## Anotações — Aula 21: Mercado, Currículo e Entrevistas Técnicas
+
+### Perfil profissional
+
+- currículo e LinkedIn são a primeira triagem: mantenha ambos atualizados, consistentes entre si e alinhados ao tipo de vaga desejada;
+- destaque competências reais e demonstráveis, como React, Next.js, TypeScript, JavaScript e Tailwind, incluindo projetos que evidenciem seu uso;
+- para uma vaga muito específica, adapte o currículo aos requisitos e às palavras-chave da descrição; não é necessário criar uma versão para toda candidatura comum;
+- cartas de apresentação têm uso bem menor no mercado atual quando comparadas a currículo, LinkedIn e portfólio.
+
+### Conversa com recrutamento e negócio
+
+- leia a descrição da vaga antes da entrevista e conecte sua experiência e seus projetos aos requisitos pedidos;
+- explique impacto, não só tecnologia: resultados, clientes atendidos, redução de tempo, melhoria de processo ou receita tornam a experiência mais concreta;
+- demonstre *ownership*: deixe claro qual era sua responsabilidade, decisão, ação e resultado;
+- seja honesto sobre lacunas técnicas e apresente um plano objetivo de estudo, em vez de inventar domínio de uma tecnologia.
+
+### Preparação prática
+
+- pesquise empresa, produto e contexto de negócio antes da conversa;
+- prepare de três a quatro perguntas genuínas sobre time, desafios, produto ou expectativas da vaga;
+- construa uma narrativa positiva para transições de carreira, valorizando o que a experiência anterior acrescenta ao seu trabalho atual;
+- use números verdadeiros sempre que possível; se não tiver a métrica exata, prefira descrever o impacto com precisão a inventar valores.
+
 ## Próximos passos
 
 - [ ] Criar o projeto React com Vite e TypeScript;
