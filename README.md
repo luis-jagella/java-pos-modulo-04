@@ -455,6 +455,29 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 - regras de e-mail e senha pertencem a um módulo de validação compartilhado, não ao componente visual;
 - centralizar validações evita divergência de regras entre cadastro e login.
 
+## Anotações — Aulas 18 e 19: Projeto Guiado — Formulário de Tasks e API
+
+### Formulário para cadastrar uma task
+
+- o componente `FormTasks` pode reaproveitar a estrutura de `FormLogin`, mas possui apenas um campo: `name="task"`, com estado local, `value`, `onChange` e o placeholder `"Informe o título da task"`;
+- como esse input é específico da tela, não é obrigatório abstraí-lo em mais um componente reutilizável; crie abstrações quando há repetição real;
+- o botão é o único do formulário e, por isso, pode usar o comportamento padrão `type="submit"`; pressionar Enter no input também submete o form;
+- a ação do formulário será responsável pelo `POST /tasks`, recebendo e validando o título antes de chamar a API.
+
+### Composição visual com Tailwind
+
+- use `relative` no formulário e `absolute top-0 right-0 bottom-0` no botão para posicioná-lo dentro da área visual do input;
+- o input usa `w-full` para preencher o formulário e `pr-10` (ou valor equivalente) para reservar espaço ao botão e impedir que o texto fique escondido;
+- `rounded-lg` e `shadow-lg` no conjunto destacam a ação principal; no botão, arredondar apenas o lado direito cria o encaixe com o campo;
+- o botão pode conter apenas um ícone quando a finalidade estiver clara, mas deve manter um `aria-label` para acessibilidade.
+
+### Contrato e teste da API
+
+- antes do front-end, valide o fluxo no Postman: faça login, obtenha o token e envie `Authorization: Bearer <token>` nas rotas protegidas;
+- `POST /tasks` cria uma tarefa, `GET /tasks` lista as tarefas do usuário e `DELETE /tasks/:id` remove uma task da listagem;
+- testar o contrato separadamente ajuda a distinguir falhas de autenticação/API de problemas no componente React;
+- a implementação completa depende de uma API local compatível e de um token válido; não versionar tokens nem segredos.
+
 ## Próximos passos
 
 - [ ] Criar o projeto React com Vite e TypeScript;
