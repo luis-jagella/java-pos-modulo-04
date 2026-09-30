@@ -550,6 +550,30 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 - **state** é o estado interno mutável do componente, atualizado por sua função *setter* (por exemplo, `setCount`), o que dispara nova renderização;
 - um state pode ser passado como prop a um componente filho, mas a prop recebida continua imutável naquele filho.
 
+## Anotações — Aula 23: Renderização Condicional, Context e Desafios Reais
+
+### Renderização condicional
+
+- renderização condicional decide qual interface aparece a partir de uma prop ou state, como alternar entre carregamento, erro, vazio e conteúdo;
+- o ternário é adequado para dois caminhos: `condition ? <A /> : <B />`;
+- `condition && <Component />` renderiza o elemento da direita somente quando a condição é verdadeira;
+- um `if/else` antes do `return` é mais legível para regras maiores; retornar `null` impede qualquer renderização daquele componente.
+
+### Context API e prop drilling
+
+- Context API distribui valores compartilhados por meio de um `Provider`, evitando repassar a mesma prop por muitos níveis da árvore;
+- *prop drilling* ocorre quando dados atravessam componentes intermediários que não os utilizam, apenas para chegar a um descendente;
+- use Context quando o compartilhamento for realmente global ou atravessar vários níveis; props explícitas continuam mais simples para relações locais;
+- Redux é uma alternativa baseada em store, actions e dispatch; o React atual permite estruturar Context e reducers de forma semelhante quando necessário.
+
+### Trabalho com sistemas reais
+
+- em código legado, aceite as restrições iniciais e faça melhorias pequenas, seguras e graduais; otimizar build pode devolver tempo à rotina de desenvolvimento;
+- erros de CSS e compatibilidade devem ser priorizados pelo impacto: use métricas de acesso para entender quantos usuários são afetados antes de investir muito tempo;
+- APIs mal documentadas podem ser exploradas com Postman, testando cenários válidos e inválidos para descobrir contrato, parâmetros obrigatórios e limites;
+- se o contrato da API não atende a interface, crie uma camada de adaptação no front-end em vez de acoplar a tela a um formato inadequado;
+- depois de descobrir o contrato, documente-o e compartilhe com o time — por exemplo, em uma base como Confluence — para reduzir retrabalho.
+
 ## Próximos passos
 
 - [ ] Criar o projeto React com Vite e TypeScript;
