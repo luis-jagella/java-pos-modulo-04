@@ -478,6 +478,29 @@ Também fazem parte da disciplina um videocast sobre roadmap de estudos e a aval
 - testar o contrato separadamente ajuda a distinguir falhas de autenticação/API de problemas no componente React;
 - a implementação completa depende de uma API local compatível e de um token válido; não versionar tokens nem segredos.
 
+## Anotações — Aula 20: Lista, Conclusão e Exclusão de Tasks
+
+### Layout da task
+
+- organize cada item com `grid` e `grid-cols-[auto_1fr_auto]`: checkbox à esquerda, título usando o espaço restante (`1fr`) e ação de exclusão à direita;
+- `gap-2` e `items-center` mantêm controles e texto bem espaçados e alinhados; `flex` no conteúdo do checkbox pode corrigir pequenos desalinhamentos;
+- o `1fr` representa uma fração do espaço disponível, enquanto `auto` preserva apenas o tamanho necessário para os controles laterais.
+
+### Estado visual e classes condicionais
+
+- a biblioteca `classnames` ajuda a aplicar classes fixas e condicionais sem concatenar strings manualmente;
+- uma task concluída pode receber `opacity-50` e `line-through`, deixando claro que ela pertence ao histórico e não é mais uma pendência;
+- não aplique o destaque de hover destinado a tasks ativas em tarefas concluídas; reduza também interações que não fazem sentido nesse estado;
+- defina `cursor-default` no texto não clicável e preserve cursor/feedback apropriado nos botões.
+
+### Regras de negócio e endpoints
+
+- o checkbox envia `"on"` quando marcado e `null` quando desmarcado; leia o valor a partir do `FormData` e converta-o na regra desejada;
+- o exemplo explora alternar entre `complete` e `uncomplete`, mas o requisito final determina conclusão definitiva: uma task concluída não volta a ficar pendente;
+- `DELETE /tasks/:id` não precisa de body: envie o identificador da task no endpoint e a autenticação no header;
+- o botão de exclusão pode ser ocultado para tasks concluídas, deixando apenas tasks pendentes elegíveis à remoção;
+- ícones SVG diretos funcionam para ações locais, desde que o botão tenha rótulo acessível e feedback de hover/foco.
+
 ## Próximos passos
 
 - [ ] Criar o projeto React com Vite e TypeScript;
